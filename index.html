@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Habit Tap</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="todayLabel">今日</p>
+          <h1>Habit Tap</h1>
+        </div>
+        <button class="icon-button" id="notifyButton" type="button" aria-label="通知を許可" title="通知を許可">
+          <span aria-hidden="true">!</span>
+        </button>
+      </header>
+
+      <section class="summary-grid" aria-label="今日の状況">
+        <article class="metric">
+          <span class="metric-label">達成</span>
+          <strong id="doneCount">0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">未達成</span>
+          <strong id="pendingCount">0</strong>
+        </article>
+        <article class="metric">
+          <span class="metric-label">達成率</span>
+          <strong id="rateCount">0%</strong>
+        </article>
+      </section>
+
+      <section class="panel" aria-labelledby="formTitle">
+        <div class="section-heading">
+          <h2 id="formTitle">習慣を追加</h2>
+          <button class="text-button" id="cancelEditButton" type="button" hidden>編集をやめる</button>
+        </div>
+        <form id="habitForm" class="habit-form">
+          <label>
+            <span>習慣名</span>
+            <input id="habitName" name="name" type="text" placeholder="例: 水を飲む" maxlength="32" required>
+          </label>
+          <label>
+            <span>カテゴリ</span>
+            <select id="habitCategory" name="category">
+              <option value="健康">健康</option>
+              <option value="学習">学習</option>
+              <option value="仕事">仕事</option>
+              <option value="暮らし">暮らし</option>
+              <option value="その他">その他</option>
+            </select>
+          </label>
+          <label>
+            <span>色</span>
+            <input id="habitColor" name="color" type="color" value="#2f80ed">
+          </label>
+          <label>
+            <span>リマインド</span>
+            <input id="habitReminder" name="reminder" type="time">
+          </label>
+          <button class="primary-button" id="submitButton" type="submit">追加する</button>
+        </form>
+      </section>
+
+      <section class="notice" id="noticeArea" hidden></section>
+
+      <section class="panel" aria-labelledby="listTitle">
+        <div class="section-heading">
+          <h2 id="listTitle">今日の習慣</h2>
+          <span id="habitTotal" class="subtle">0件</span>
+        </div>
+        <div id="habitList" class="habit-list"></div>
+        <p id="emptyState" class="empty-state">まだ習慣がありません。まずは1つだけ追加してみましょう。</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
