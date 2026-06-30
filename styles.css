@@ -96,7 +96,7 @@ h2 {
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   margin-bottom: 16px;
 }
@@ -219,6 +219,10 @@ input[type="color"] {
   background: #f0fbf6;
 }
 
+.habit-card.skip {
+  background: #f8fafc;
+}
+
 .habit-title {
   display: flex;
   flex-wrap: wrap;
@@ -253,7 +257,8 @@ input[type="color"] {
 }
 
 .habit-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
   align-items: center;
   gap: 8px;
 }
@@ -276,6 +281,97 @@ input[type="color"] {
   color: var(--danger);
 }
 
+.small-button.skip {
+  background: #fff7e8;
+  color: var(--warning);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.week-calendar {
+  display: grid;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.calendar-row {
+  display: grid;
+  grid-template-columns: minmax(128px, 1.2fr) repeat(7, minmax(42px, 1fr));
+  gap: 8px;
+  align-items: center;
+  min-width: 620px;
+}
+
+.calendar-row strong,
+.calendar-row span {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.calendar-head {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.day-dot {
+  justify-content: center;
+  border-radius: 8px;
+  background: #edf2f7;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.day-dot.done {
+  background: #dff8eb;
+  border-color: #9addbd;
+  color: var(--success);
+}
+
+.day-dot.skip {
+  background: #fff1d6;
+  border-color: #f3ca82;
+  color: var(--warning);
+}
+
+.note-dialog {
+  width: min(520px, calc(100% - 28px));
+  border: 0;
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: var(--shadow);
+}
+
+.note-dialog::backdrop {
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.note-form {
+  padding: 18px;
+}
+
+.note-form textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--text);
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
 .empty-state {
   margin: 8px 0 0;
   color: var(--muted);
@@ -293,10 +389,6 @@ input[type="color"] {
 
   .summary-grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .summary-grid .metric:last-child {
-    grid-column: 1 / -1;
   }
 
   .habit-form {
@@ -317,7 +409,7 @@ input[type="color"] {
 
   .habit-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .check-button,

@@ -24,6 +24,10 @@
           <strong id="doneCount">0</strong>
         </article>
         <article class="metric">
+          <span class="metric-label">スキップ</span>
+          <strong id="skipCount">0</strong>
+        </article>
+        <article class="metric">
           <span class="metric-label">未達成</span>
           <strong id="pendingCount">0</strong>
         </article>
@@ -67,6 +71,14 @@
 
       <section class="notice" id="noticeArea" hidden></section>
 
+      <section class="panel" aria-labelledby="calendarTitle">
+        <div class="section-heading">
+          <h2 id="calendarTitle">週間カレンダー</h2>
+          <span class="subtle">過去7日</span>
+        </div>
+        <div id="weekCalendar" class="week-calendar"></div>
+      </section>
+
       <section class="panel" aria-labelledby="listTitle">
         <div class="section-heading">
           <h2 id="listTitle">今日の習慣</h2>
@@ -76,6 +88,20 @@
         <p id="emptyState" class="empty-state">まだ習慣がありません。まずは1つだけ追加してみましょう。</p>
       </section>
     </main>
+
+    <dialog id="noteDialog" class="note-dialog">
+      <form method="dialog" class="note-form">
+        <div class="section-heading">
+          <h2 id="noteTitle">今日のメモ</h2>
+          <button class="text-button" value="cancel" type="submit">閉じる</button>
+        </div>
+        <textarea id="noteText" rows="5" maxlength="240" placeholder="例: 今日は15分できた"></textarea>
+        <div class="dialog-actions">
+          <button class="small-button danger" id="clearNoteButton" type="button">メモを消す</button>
+          <button class="primary-button" id="saveNoteButton" value="default" type="button">保存する</button>
+        </div>
+      </form>
+    </dialog>
 
     <script src="app.js"></script>
   </body>
